@@ -3,6 +3,7 @@ import * as fs from "node:fs";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
+import Container from "@/components/container";
 
 // const filePath = "count.txt";
 
@@ -31,13 +32,13 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const router = useRouter();
-  const state = Route.useLoaderData();
+  // const router = useRouter();
+  // const state = Route.useLoaderData();
 
   return (
-    <>
+    <Container className="h-full">
       <h2 className="text-3xl font-bold">Parth Kalra</h2>
-      <p>sadc</p>
-    </>
+      <p>Test Site</p>
+    </Container>
   );
 }

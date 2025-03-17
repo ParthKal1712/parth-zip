@@ -7,6 +7,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import globalsCss from "@/styles/globals.css?url";
+import Navbar from "@/components/navbar";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -50,6 +51,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
       </head>
       <body className="font-jetbrains">
+        <Navbar />
         {children}
         <Scripts />
       </body>
