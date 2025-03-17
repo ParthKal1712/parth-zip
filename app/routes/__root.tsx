@@ -6,6 +6,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import globalsCss from "@/styles/globals.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -18,13 +19,22 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: "Parth Kalra",
+      },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: globalsCss,
+      },
+      {
+        rel: "icon",
+        href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>",
       },
     ],
   }),
   component: RootComponent,
 });
-
 function RootComponent() {
   return (
     <RootDocument>
@@ -39,7 +49,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="font-jetbrains">
         {children}
         <Scripts />
       </body>
