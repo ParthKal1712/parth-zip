@@ -72,7 +72,11 @@ const Navbar = () => {
                   // >
                   //   {link.label}
                   // </Link>
-                  <Button variant="link" key={link.label}>
+                  <Button
+                    variant="link"
+                    key={link.label}
+                    onClick={() => setDialogOpen(true)}
+                  >
                     {link.label}
                   </Button>
                 ))}
