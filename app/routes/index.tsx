@@ -2,6 +2,7 @@
 import * as fs from "node:fs";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import { Button } from "@/components/ui/button";
 
 const filePath = "count.txt";
 
@@ -46,6 +47,7 @@ function Home() {
         Add 1 to {state}?
       </button>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Button>Test button</Button>
     </>
   );
 }
