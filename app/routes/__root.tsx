@@ -6,13 +6,13 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import "@/styles/globals.css";
+import globalsCss from "@/styles/globals.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charSet: "utf-8",
+        charset: "utf-8",
       },
       {
         name: "viewport",
@@ -24,6 +24,10 @@ export const Route = createRootRoute({
     ],
     links: [
       {
+        rel: "stylesheet",
+        href: globalsCss,
+      },
+      {
         rel: "icon",
         href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>",
       },
@@ -31,7 +35,6 @@ export const Route = createRootRoute({
   }),
   component: RootComponent,
 });
-
 function RootComponent() {
   return (
     <RootDocument>
