@@ -4,6 +4,8 @@ import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/container";
+import Hero from "@/components/hero";
+import { useDialog } from "@/hooks/use-dialog";
 
 // const filePath = "count.txt";
 
@@ -37,8 +39,7 @@ function Home() {
 
   return (
     <Container className="h-full">
-      <h2 className="text-3xl font-bold">Parth Kalra</h2>
-      <p>Test Site</p>
+      <Hero />
     </Container>
   );
 }
