@@ -12,7 +12,7 @@ export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charset: "utf-8",
+        charSet: "utf-8",
       },
       {
         name: "viewport",
@@ -49,7 +49,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="font-jetbrains">
         {children}
         <Scripts />
       </body>
