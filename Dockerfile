@@ -12,6 +12,7 @@ COPY tsconfig.json .
 RUN npm install
 
 COPY app/ app/
+COPY public/ public/
 
 RUN npm run build
 
