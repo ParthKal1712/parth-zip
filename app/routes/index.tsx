@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import Container from "@/components/container";
 import Hero from "@/components/hero";
 import { useDialog } from "@/hooks/use-dialog";
+import About from "@/components/about";
+import Marquee from "@/components/marquee";
 
 // const filePath = "count.txt";
 
@@ -38,8 +40,9 @@ function Home() {
   // const state = Route.useLoaderData();
 
   return (
-    <Container className="h-full">
+    <div className="mt-16 h-fit">
       <Hero />
-    </Container>
+      <About />
+    </div>
   );
 }

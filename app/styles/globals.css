@@ -116,6 +116,72 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --font-jetbrains: "JetBrains Mono", monospace;
+
+  /* Transition Classes */
+  --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+  --animate-marquee: marquee 50s linear infinite;
+  --animate-marquee2: marquee2 50s linear infinite;
+  --animate-rubberband: rubberband 1s linear 1;
+
+  /* Transition Keyframes */
+  @keyframes fade-in-scale {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes marquee2 {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes rubberband {
+    "0%": {
+      transform: scaleX(0.9) scaleY(1);
+    }
+    "40%": {
+      transform: scaleX(1.3) scaleY(0.65);
+    }
+    "55%": {
+      transform: scaleX(0.85) scaleY(1);
+    }
+    "65%": {
+      transform: scaleX(1.09) scaleY(0.55);
+    }
+    "75%": {
+      transform: scaleX(0.8) scaleY(0.85);
+    }
+    "85%": {
+      transform: scaleX(1.01) scaleY(0.4);
+    }
+    "90%": {
+      transform: scaleX(0.75) scaleY(0.8);
+    }
+    "95%": {
+      transform: scaleX(1.05) scaleY(0.95);
+    }
+    "100%": {
+      transform: scaleX(1) scaleY(1);
+    }
+  }
 }
 
 @layer base {
