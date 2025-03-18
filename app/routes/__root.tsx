@@ -7,7 +7,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import globalsCss from "@/styles/globals.css?url";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/top-bar";
 
 export const Route = createRootRoute({
   head: () => ({

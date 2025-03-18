@@ -3,9 +3,12 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import ThemeToggle from "./theme-toggle";
 import { Link } from "@tanstack/react-router";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useDialog } from "@/hooks/use-dialog";
+import Container from "@/components/container";
+
+export const TOPBAR_MARGIN = "mt-16";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,15 +40,14 @@ const Navbar = () => {
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 z-50 mx-auto h-16 w-full p-4 transition-all duration-300",
-          isScrolled
-            ? "bg-background/5 border-border border-b border-dashed backdrop-blur-md"
-            : "bg-transparent",
-        )}
-      >
-        <div className="container mx-auto flex h-full items-center justify-between">
+      <header className="fixed top-0 z-50 h-16 w-full transition-all duration-300">
+        <Container
+          disableVerticalPadding
+          className={cn(
+            "border-border flex h-full items-center justify-between border-b border-dashed",
+            isScrolled ? "bg-background/5 backdrop-blur-md" : "bg-transparent",
+          )}
+        >
           <Link to="/" className="text-xl font-bold">
             ~\parth.zip 🏹
           </Link>
@@ -65,13 +67,6 @@ const Navbar = () => {
             <div className="flex items-center gap-6">
               <nav className="flex items-center gap-6">
                 {navLinks.map((link) => (
-                  // <Link
-                  //   key={link.label}
-                  //   to={link.href}
-                  //   className="hover:text-primary text-sm font-medium transition-colors"
-                  // >
-                  //   {link.label}
-                  // </Link>
                   <Button
                     variant="link"
                     key={link.label}
@@ -84,28 +79,21 @@ const Navbar = () => {
               <ThemeToggle />
             </div>
           )}
-        </div>
+        </Container>
         {/* Mobile menu */}
         {isMobile && (
           <div
             className={cn(
-              "bg-background/95 absolute top-16 left-0 flex w-full flex-col gap-4 overflow-hidden border-b border-dashed px-6 py-4 shadow-md backdrop-blur-md transition-all duration-300 ease-in-out",
+              "absolute top-16 left-0 z-50 flex w-full flex-col gap-4 overflow-hidden border-b border-dashed px-6 py-4 transition-all duration-300 ease-in-out",
+              "bg-background/5 border-border backdrop-blur-md",
               isMenuOpen
                 ? "max-h-[400px] translate-y-0 opacity-100"
                 : "pointer-events-none max-h-0 -translate-y-2 border-b-0 py-0 opacity-0",
             )}
           >
             {navLinks.map((link) => (
-              // <Link
-              //   key={link.label}
-              //   to={link.href}
-              //   className="hover:text-primary py-2 text-sm font-medium transition-colors"
-              //   onClick={() => setIsMenuOpen(false)}
-              // >
-              //   {link.label}
-              // </Link>
               <Button
-                variant="ghost"
+                variant="link"
                 key={link.label}
                 onClick={() => setDialogOpen(true)}
               >
