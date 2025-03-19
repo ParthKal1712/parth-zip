@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-router";
 import globalsCss from "@/styles/globals.css?url";
 import Navbar from "@/components/top-bar";
+import { getThemeFromCookie } from "@/lib/theme-cookies";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -34,6 +35,11 @@ export const Route = createRootRoute({
       },
     ],
   }),
+  loader: async () => {
+    return {
+      theme: await getThemeFromCookie(),
+    };
+  },
   component: RootComponent,
 });
 function RootComponent() {
@@ -45,8 +51,12 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+  // Get the theme from the cookie from the loader
+  const { theme } = Route.useLoaderData();
+  const docClass = theme === "dark" ? "dark" : "";
+
   return (
-    <html>
+    <html className={docClass}>
       <head>
         <HeadContent />
       </head>
