@@ -55,6 +55,7 @@ const SupplyChainExpertise = () => {
         sectionTitle: "Supply Chain Expertise",
         sectionContent:
           "With years of experience in supply chain management, I've developed expertise in optimizing operations, reducing costs, and improving service levels across various industries.",
+        variant: "inverted",
       }}
       cards={{
         cardsList,

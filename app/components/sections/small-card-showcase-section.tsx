@@ -17,6 +17,7 @@ type SmallCardShowcaseProps = {
     sectionId: string;
     sectionTitle: string;
     sectionContent: string;
+    variant?: "default" | "inverted";
   };
   cards: {
     cardsList: {
@@ -31,10 +32,13 @@ type SmallCardShowcaseProps = {
 };
 
 const SmallCardShowcase = ({
-  section: { sectionId, sectionTitle, sectionContent },
+  section: { sectionId, sectionTitle, sectionContent, variant = "default" },
   cards: { cardsList, randomizeCards = false },
   className,
 }: SmallCardShowcaseProps) => {
+  const cardBgClass = variant === "default" ? "bg-card" : "bg-muted/30";
+  const sectionBgClass = variant === "default" ? "bg-muted/30" : "bg-card";
+
   // Hook to trigger animation when the secction first enters the viewport
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -42,7 +46,7 @@ const SmallCardShowcase = ({
   });
 
   return (
-    <section id={sectionId} className={cn("py-20", className)}>
+    <section id={sectionId} className={cn("py-20", sectionBgClass, className)}>
       <Container ref={ref}>
         <div className="mb-12 text-center">
           <H2>{sectionTitle}</H2>
@@ -60,7 +64,10 @@ const SmallCardShowcase = ({
             .map((item, index) => (
               <Card
                 key={index}
-                className="bg-card text-card-foreground border transition-shadow hover:shadow-md"
+                className={cn(
+                  "bg-card text-card-foreground border transition-shadow hover:shadow-md",
+                  cardBgClass,
+                )}
               >
                 <CardHeader className="flex flex-row items-center gap-4 pb-2">
                   <item.icon className="text-primary h-10 w-10" />
