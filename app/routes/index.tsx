@@ -9,6 +9,7 @@ import { useDialog } from "@/hooks/use-dialog";
 import About from "@/components/about";
 import Marquee from "@/components/marquee";
 import SupplyChainExpertise from "@/components/supply-chain-expertise";
+import TechExpertise from "@/components/tech-expertise";
 
 // const filePath = "count.txt";
 
@@ -45,6 +46,7 @@ function Home() {
       <Hero />
       <About />
       <SupplyChainExpertise />
+      <TechExpertise />
     </div>
   );
 }
