@@ -8,6 +8,7 @@ import Hero from "@/components/hero";
 import { useDialog } from "@/hooks/use-dialog";
 import About from "@/components/about";
 import Marquee from "@/components/marquee";
+import SupplyChainExpertise from "@/components/supply-chain-expertise";
 
 // const filePath = "count.txt";
 
@@ -43,6 +44,7 @@ function Home() {
     <div className="mt-16 h-fit">
       <Hero />
       <About />
+      <SupplyChainExpertise />
     </div>
   );
 }
