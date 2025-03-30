@@ -6,7 +6,7 @@ import {
   Server,
   Smartphone,
 } from "lucide-react";
-import SmallCardShowcase from "@/components/sections/small-card-showcase-section";
+import SmallCardShowcase from "@/components/ui/sections/small-card-showcase-section";
 
 const TechExpertise = () => {
   const cardsList = [
@@ -87,7 +87,6 @@ const TechExpertise = () => {
       }}
       cards={{
         cardsList,
-        randomizeCards: true,
       }}
       className="bg-muted/30"
     />

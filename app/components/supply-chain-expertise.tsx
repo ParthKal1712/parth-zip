@@ -6,7 +6,7 @@ import {
   TrendingUp,
   Truck,
 } from "lucide-react";
-import SmallCardShowcase from "@/components/sections/small-card-showcase-section";
+import SmallCardShowcase from "@/components/ui/sections/small-card-showcase-section";
 
 const SupplyChainExpertise = () => {
   const cardsList = [
@@ -50,6 +50,7 @@ const SupplyChainExpertise = () => {
 
   return (
     <SmallCardShowcase
+      starsBackground
       section={{
         sectionId: "supply-chain-expertise",
         sectionTitle: "Supply Chain Expertise",
@@ -59,7 +60,6 @@ const SupplyChainExpertise = () => {
       }}
       cards={{
         cardsList,
-        randomizeCards: true,
       }}
     />
   );

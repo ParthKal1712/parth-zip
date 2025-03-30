@@ -6,6 +6,9 @@ import { useState } from "react";
 import Container from "./container";
 import { H2, P } from "./typography";
 import { useTabs } from "@/hooks/use-tabs";
+import { TextGenerateEffect } from "./ui/text-generate-effect";
+import { ShootingStars } from "./ui/shooting-stars";
+import { StarsBackground } from "./ui/stars-background";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -27,11 +30,13 @@ const About = () => {
               in web development, I bridge the gap between operational
               excellence and technological innovation.
             </P>
-            <P color="muted">
-              My dual background allows me to understand business challenges
-              from multiple perspectives and create technology solutions that
-              address real-world supply chain problems.
-            </P>
+            <TextGenerateEffect
+              words="My dual background allows me to understand business challenges from multiple perspectives and create technology solutions that address real-world supply chain problems."
+              textClassName="text-muted-foreground leading-7 [&:not(:first-child)]:mt-6"
+              key="about-me"
+              duration={0.1}
+              filter={false}
+            />
           </>
         ),
       },
@@ -215,7 +220,7 @@ const About = () => {
     //     </div>
     //   </div>
     // </section>
-    <section id="about" className="bg-muted/30 relative">
+    <section id="about" className="bg-muted/30 relative py-8">
       <Container
         ref={ref}
         className={cn(
