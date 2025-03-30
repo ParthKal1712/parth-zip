@@ -43,7 +43,51 @@ export const H2 = ({
   return (
     <h2
       className={cn(
-        "scroll-m-20pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+        "scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+        underline ? "border-b" : "",
+        COLOR_TW_MAP[color],
+        className,
+      )}
+    >
+      {children}
+    </h2>
+  );
+};
+
+export const H3 = ({
+  children,
+  className,
+  color = "primary",
+  underline = false,
+}: TypographyProps & {
+  underline?: boolean;
+}) => {
+  return (
+    <h2
+      className={cn(
+        "scroll-m-20 text-2xl font-semibold tracking-tight",
+        underline ? "border-b" : "",
+        COLOR_TW_MAP[color],
+        className,
+      )}
+    >
+      {children}
+    </h2>
+  );
+};
+
+export const H4 = ({
+  children,
+  className,
+  color = "primary",
+  underline = false,
+}: TypographyProps & {
+  underline?: boolean;
+}) => {
+  return (
+    <h2
+      className={cn(
+        "scroll-m-20 text-xl font-semibold tracking-tight",
         underline ? "border-b" : "",
         COLOR_TW_MAP[color],
         className,

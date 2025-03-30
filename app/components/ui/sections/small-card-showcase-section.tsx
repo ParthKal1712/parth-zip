@@ -11,8 +11,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ShootingStars } from "../shooting-stars";
+import { StarsBackground } from "../stars-background";
 
 type SmallCardShowcaseProps = {
+  starsBackground?: boolean;
   section: {
     sectionId: string;
     sectionTitle: string;
@@ -32,6 +35,7 @@ type SmallCardShowcaseProps = {
 };
 
 const SmallCardShowcase = ({
+  starsBackground = false,
   section: { sectionId, sectionTitle, sectionContent, variant = "default" },
   cards: { cardsList, randomizeCards = false },
   className,
@@ -46,7 +50,7 @@ const SmallCardShowcase = ({
   });
 
   return (
-    <section id={sectionId} className={cn("py-20", sectionBgClass, className)}>
+    <section id={sectionId} className={cn("relative py-20", className)}>
       <Container ref={ref}>
         <div className="mb-12 text-center">
           <H2>{sectionTitle}</H2>
@@ -91,6 +95,12 @@ const SmallCardShowcase = ({
             ))}
         </div>
       </Container>
+      {starsBackground && (
+        <>
+          <ShootingStars />
+          <StarsBackground starDensity={0.0003} />
+        </>
+      )}
     </section>
   );
 };

@@ -9,6 +9,7 @@ import {
 import globalsCss from "@/styles/globals.css?url";
 import Navbar from "@/components/top-bar";
 import { getThemeFromCookie } from "@/lib/theme-cookies";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -56,13 +57,15 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   const docClass = theme === "dark" ? "dark" : "";
 
   return (
-    <html className={docClass}>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body className="font-jetbrains">
-        <Navbar />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          {children}
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>

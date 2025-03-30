@@ -10,9 +10,14 @@ import { DialogWidth } from "./ui/dialog";
 import Container from "./container";
 import { createServerFn } from "@tanstack/react-start";
 import { setCookie } from "@tanstack/react-start/server";
+import { ShootingStars } from "./ui/shooting-stars";
+import { StarsBackground } from "./ui/stars-background";
+import { useTheme } from "./theme-provider";
+import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { theme } = useTheme();
 
   const { setDialogOpen, DialogComponent } = useDialog({
     header: {
@@ -44,7 +49,15 @@ const Hero = () => {
           <h1 className="text-muted-foreground m-5 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
             📦 Hi, I'm <span className="text-primary">Parth</span>.
           </h1>
-          <p className="text-muted-foreground mx-auto max-w-[700px] leading-10 md:text-xl">
+          <span className="flex justify-center">
+            <TextGenerateEffect
+              words={`I am a Supply Chain guy, with my ❤️ in Tech.`}
+              textClassName="text-foreground mx-auto max-w-[700px] text-center leading-10 md:text-xl"
+              duration={0.1}
+              filter={false}
+            />
+          </span>
+          {/* <p className="text-muted-foreground mx-auto max-w-[700px] text-center leading-10 md:text-xl">
             I am a{" "}
             <Badge variant="secondary" className="text-xl">
               Supply Chain
@@ -54,7 +67,7 @@ const Hero = () => {
               Tech
             </Badge>
             .
-          </p>
+          </p> */}
         </div>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button onClick={() => setDialogOpen(true)}>
@@ -92,6 +105,8 @@ const Hero = () => {
           </Button>
         </div>
       </Container>
+      <ShootingStars />
+      <StarsBackground starDensity={0.0003} />
       <DialogComponent />
     </section>
   );

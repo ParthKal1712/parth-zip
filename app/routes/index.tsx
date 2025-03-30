@@ -10,6 +10,9 @@ import About from "@/components/about";
 import Marquee from "@/components/marquee";
 import SupplyChainExpertise from "@/components/supply-chain-expertise";
 import TechExpertise from "@/components/tech-expertise";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/stars-background";
+import { ExperienceEducation } from "@/components/experience-education";
 
 // const filePath = "count.txt";
 
@@ -45,8 +48,9 @@ function Home() {
     <div className="mt-16 h-fit">
       <Hero />
       <About />
-      <SupplyChainExpertise />
+      <ExperienceEducation />
       <TechExpertise />
+      <SupplyChainExpertise />
     </div>
   );
 }

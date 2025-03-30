@@ -1,25 +1,24 @@
 import { MoonIcon, SunIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { setThemeInCookie } from "@/lib/theme-cookies";
+import { useTheme } from "./theme-provider";
 
 export default function ThemeToggle({ className }: { className?: string }) {
+  const { theme, setTheme } = useTheme();
+
   function toggleTheme() {
-    if (
-      document.documentElement.classList.contains("dark") ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.remove("dark");
-      setThemeInCookie({
-        data: {
-          theme: "light",
-        },
-      });
-    } else {
-      document.documentElement.classList.add("dark");
+    if (theme === "light") {
+      setTheme("dark");
       setThemeInCookie({
         data: {
           theme: "dark",
+        },
+      });
+    } else {
+      setTheme("light");
+      setThemeInCookie({
+        data: {
+          theme: "light",
         },
       });
     }
