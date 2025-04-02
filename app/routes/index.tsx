@@ -13,6 +13,7 @@ import TechExpertise from "@/components/tech-expertise";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { ExperienceEducation } from "@/components/experience-education";
+import SkillsSection from "@/components/skills-section";
 
 // const filePath = "count.txt";
 
@@ -48,6 +49,7 @@ function Home() {
     <div className="mt-16 h-fit">
       <Hero />
       <About />
+      <SkillsSection />
       <ExperienceEducation />
       <TechExpertise />
       <SupplyChainExpertise />
